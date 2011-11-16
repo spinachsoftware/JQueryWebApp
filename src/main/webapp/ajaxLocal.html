@@ -11,40 +11,13 @@
   <script type="text/javascript" src="js/jquery-ui-1.8.16/ui/jquery.ui.position.js"></script>
   <script type="text/javascript" src="js/jquery-ui-1.8.16/ui/jquery.ui.widget.js"></script>
 </head>
-
-	<script>
+<script>
 	$(function() {
 		$( "#city" ).autocomplete({
-			source: function( request, response ) {
-				$.ajax({
-					url: "http://ziplocator.cloudfoundry.com/rest/startsWithCity/",
-					dataType: "json",
-					
-				    data: {
-						maxRows: 10,
-						startsWith: request.term
-					},
-					success: function( data ) {
-						response( $.map( data.zipcodes, function( item ) {
-							
-							return {
-								label: item.cityName + ", " +item.zipcodeId + ", " + item.state,
-								value: item.cityName
-							}
-						}));
-					}
-				});
-			},
-			minLength: 1,
-			open: function() {
-				$( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
-			},
-			close: function() {
-				$( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
-			}
-		});
+			source: ["Minneapolis", "Middleton"]
+		 });
 	});
-	</script>
+</script>
 
 <div class="demo">
 	<div class="ui-widget">
@@ -58,5 +31,5 @@
 		<p class="quiet"><img src="img/spinachLogo_small.JPG" alt="left" /> &copy; 2011 <a href="http://www.spinachsoftware.com/">Spinach Software and Consulting LLC.</a> All rights Reserved</p>
 		<div class="clearer">&nbsp;</div>
 	</div>	
-</div>
+</div>	
 </html>

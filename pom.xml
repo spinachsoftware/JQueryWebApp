@@ -1,7 +1,49 @@
+<!--
+ ! Spinach Software & Consulting LLC
+ ! Copyright 2011 by Spinach Software & Consulting LLC. All rights reserved.
+ !
+ ! Maven POM (Project Object Model) file  
+-->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>JQueryWebApp</groupId>
   <artifactId>JQueryWebApp</artifactId>
   <version>1.0.0-SNAPSHOT</version>
+	<properties>
+		<spring.version>3.0.6.RELEASE</spring.version>
+		<cxf.version>2.4.1</cxf.version>
+		<mysql.version>5.1.15</mysql.version>
+	</properties>
+	
+	<dependencies>
+		
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.1</version>
+		</dependency>
+		
+	</dependencies>  
+	
   <packaging>war</packaging>
 </project>

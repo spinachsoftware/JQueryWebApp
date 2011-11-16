@@ -1,3 +1,7 @@
+<!--
+ ! Spinach Software & Consulting LLC
+ ! Copyright 2011 by Spinach Software & Consulting LLC. All rights reserved.
+-->
 <html>
 <head>
   <link rel="stylesheet" href="js/jquery-ui-1.8.16/themes/base/jquery-ui.css" type="text/css" /> 
@@ -7,22 +11,19 @@
   <script type="text/javascript" src="js/jquery-ui-1.8.16/ui/jquery.ui.position.js"></script>
   <script type="text/javascript" src="js/jquery-ui-1.8.16/ui/jquery.ui.widget.js"></script>
 </head>
-
-	<script>
+<script>
 	$(function() {
 		$( "#city" ).autocomplete({
 			source: function( request, response ) {
 				$.ajax({
-					url: "http://ziplocator.cloudfoundry.com/rest/startsWithCity/",
+					url: "/ajaxcitySearchGeneral",
 					dataType: "json",
-					
-				    data: {
-						maxRows: 6,
-						startsWith: request.term
-					},
+					data: {
+							maxRows: 6,
+							startsWith: request.term
+						  },
 					success: function( data ) {
 						response( $.map( data.zipcodes, function( item ) {
-							
 							return {
 								label: item.cityName + ", " +item.zipcodeId + ", " + item.state,
 								value: item.cityName
@@ -31,7 +32,7 @@
 					}
 				});
 			},
-			minLength: 2,
+			minLength: 1,
 			open: function() {
 				$( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
 			},
@@ -40,8 +41,7 @@
 			}
 		});
 	});
-	</script>
-
+</script>
 
 <div class="demo">
 	<div class="ui-widget">
